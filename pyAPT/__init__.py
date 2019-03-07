@@ -1,7 +1,7 @@
 from __future__ import absolute_import
 import pylibftdi
 
-from pyAPT import message, controller, mts50, prm1
+from pyAPT import message, controller, mts50, prm1, lts150
 
 __version__ = "0.01"
 __author__ = "Shuning Bian"
@@ -12,6 +12,7 @@ __all__ = ['Message', 'Controller', 'MTS50', 'OutOfRangeError', 'PRM1',
 Message = message.Message
 Controller = controller.Controller
 MTS50 = mts50.MTS50
+LTS150 = lts150.LTS150
 PRM1 = prm1.PRM1
 OutOfRangeError = controller.OutOfRangeError
 

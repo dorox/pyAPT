@@ -14,7 +14,7 @@ from runner import runner_serial
 
 @runner_serial
 def home(serial):
-  with pyAPT.MTS50(serial_number=serial) as con:
+  with pyAPT.LTS150(serial_number=serial) as con:
     print('\tIdentifying controller')
     con.identify()
     print('\tHoming parameters:', con.request_home_params())

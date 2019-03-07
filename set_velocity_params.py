@@ -10,7 +10,7 @@ import pylibftdi
 import pyAPT
 
 def set_vel_params(serial, acc, max_vel):
-  with pyAPT.MTS50(serial_number=serial) as con:
+  with pyAPT.LTS150(serial_number=serial) as con:
     print('\tSetting new velocity parameters',acc,max_vel)
     con.set_velocity_parameters(acc, max_vel)
     min_vel, acc, max_vel = con.velocity_parameters()

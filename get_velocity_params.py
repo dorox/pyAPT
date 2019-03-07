@@ -12,7 +12,7 @@ from runner import runner_serial
 
 @runner_serial
 def get_vel_params(serial):
-  with pyAPT.MTS50(serial_number=serial) as con:
+  with pyAPT.LTS150(serial_number=serial) as con:
     min_vel, acc, max_vel = con.velocity_parameters()
     raw_min_vel, raw_acc, raw_max_vel = con.velocity_parameters(raw=True)
     print('\tController velocity parameters:')

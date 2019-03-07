@@ -56,6 +56,8 @@ class Controller(object):
         self.label = label
         self._device = dev
 
+        #TODO: resolve duplication of limits definitions
+        
         # some conservative limits
         # velocity is in mm/s
         # acceleration is in mm^2/s
@@ -73,7 +75,7 @@ class Controller(object):
 
         # defines the linear, i.e. distance, range of the controller
         # unit is in mm
-        self.linear_range = (0, 50)
+        self.linear_range = (0, 150)
 
         # whether or not sofware limit in position is applied
         self.soft_limits = True
@@ -153,6 +155,7 @@ class Controller(object):
         otherwise
         """
         # get rid of floating point artifacts below our resolution
+        #TODO: check why is this here, how to avoid
         enccnt = int(absolute_pos_mm * self.position_scale)
         absolute_pos_mm = enccnt / self.position_scale
 
@@ -492,7 +495,7 @@ class Controller(object):
         """
         info = st.unpack('<I 8s H 3b x 48s 12s HHH', getmsg.datastring)
 
-        sn, model, hwtype, fwvermajor, fwverinterim, fwverminor, notes, _, hwver, modstate, numchan = info
+        sn, model, hwtype, fwverminor, fwverinterim, fwvermajor, notes, _, hwver, modstate, numchan = info
         fwver = '%d.%d.%d' % (fwvermajor, fwverinterim, fwverminor)
 
         return (sn, model.decode().strip('\x00'), hwtype, fwver, notes.decode().strip('\x00'), hwver, modstate, numchan)

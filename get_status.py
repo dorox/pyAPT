@@ -12,7 +12,7 @@ from runner import runner_serial
 
 @runner_serial
 def status(serial):
-  with pyAPT.MTS50(serial_number=serial) as con:
+  with pyAPT.LTS150(serial_number=serial) as con:
     status = con.status()
     print('\tController status:')
     print('\t\tPosition: %.3fmm (%d cnt)'%(status.position, status.position_apt))
