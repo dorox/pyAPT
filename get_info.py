@@ -19,8 +19,8 @@ def info(serial):
     labels=['S/N','Model','Type','Firmware Ver', 'Notes', 'H/W Ver',
             'Mod State', 'Channels']
 
-    for idx,ainfo in enumerate(info):
-      print('\t%12s: %s'%(labels[idx], bytes(ainfo)))
+    for idx, ainfo in enumerate(info):
+      print('\t%12s: %s'%(labels[idx], ainfo))
 
 if __name__ == '__main__':
   import sys

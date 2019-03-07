@@ -64,8 +64,6 @@ class Message(_Message):
 
       if type(data) == str:
         data = [ord(c) for c in data]
-      elif type(data) == bytes:
-        data = list(data)
 
       return super(Message, cls).__new__(Message,
                                           messageID,
@@ -202,6 +200,8 @@ MGMSG_MOT_GET_POSCOUNTER = 0x0412
 
 MGMSG_MOT_REQ_DCSTATUSUPDATE = 0x0490
 MGMSG_MOT_GET_DCSTATUSUPDATE = 0x0491
+MGMSG_MOT_REQ_STATUSUPDATE = 0x0480
+MGMSG_MOT_GET_STATUSUPDATE = 0x0481
 
 MGMSG_MOT_SET_VELPARAMS = 0x413
 MGMSG_MOT_REQ_VELPARAMS = 0x414
